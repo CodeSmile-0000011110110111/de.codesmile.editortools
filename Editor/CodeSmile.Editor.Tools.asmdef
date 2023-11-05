@@ -1,0 +1,16 @@
+{
+    "name": "CodeSmile.Editor.Tools",
+    "rootNamespace": "CodeSmile.Editor.Tools",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
