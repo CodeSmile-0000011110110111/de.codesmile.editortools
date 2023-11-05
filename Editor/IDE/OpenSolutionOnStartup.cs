@@ -11,12 +11,16 @@ using UnityEngine;
 namespace CodeSmile.Editor.Tools.IDE
 {
 	/// <summary>
-	/// Will launch the IDE associated with .sln files when the Unity project is opened.
+	///     Will launch the IDE associated with .sln files when the Unity project is opened.
 	/// </summary>
-	[InitializeOnLoad] public class OpenSolutionOnStartup
+	[InitializeOnLoad] [ExcludeFromCodeCoverage]
+	public class OpenSolutionOnStartup
 	{
 		private const String SessionStateKey = "CodeSmile.Editor.Tools.IsProjectLaunching";
 		[NotNull] private static String ProjectRootPath => $"{Application.dataPath}/..";
+
+		[MenuItem("CodeSmile/Open Solution")]
+		public static void OpenSolutionFromMenu() => TryOpenSolution();
 
 		private static void TryOpenSolution()
 		{
