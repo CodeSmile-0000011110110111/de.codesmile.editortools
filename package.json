@@ -1,5 +1,5 @@
 {
-  "name": "de.codesmile.unityeditor.tools",
+  "name": "de.codesmile.editor.tools",
   "displayName": "CodeSmile EditorTools",
   "description": "An assorted collection of editor-only tools and improvements.",
   "version": "0.1.0",
