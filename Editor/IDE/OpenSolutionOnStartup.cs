@@ -3,41 +3,28 @@
 
 #if UNITY_EDITOR
 using System;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
+using Unity.CodeEditor;
 using UnityEditor;
-using UnityEngine;
 
 namespace CodeSmile.Editor.Tools.IDE
 {
 	/// <summary>
 	///     Will launch the IDE associated with .sln files when the Unity project is opened.
 	/// </summary>
-	[InitializeOnLoad] [ExcludeFromCodeCoverage]
+	[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 	public class OpenSolutionOnStartup
 	{
 		private const String SessionStateKey = "CodeSmile.Editor.Tools.IsProjectLaunching";
-		[NotNull] private static String ProjectRootPath => $"{Application.dataPath}/..";
+
+		[InitializeOnLoadMethod]
+		private static void OnLoad()
+		{
+			if (IsProjectLaunching())
+				TryOpenSolution();
+		}
 
 		[MenuItem("CodeSmile/Open Solution")]
-		public static void OpenSolutionFromMenu() => TryOpenSolution();
-
-		private static void TryOpenSolution()
-		{
-			var solutionUrl = TryGetSolutionPath();
-			if (File.Exists(solutionUrl))
-			{
-				Debug.Log($"Welcome {Environment.UserName}! Your IDE should now open the project's solution.\n" +
-				          $"Solution path: {solutionUrl}");
-				Application.OpenURL(solutionUrl);
-			}
-		}
-
-		private static String TryGetSolutionPath()
-		{
-			var solutions = Directory.GetFiles(ProjectRootPath, "*.sln");
-			return solutions.Length > 0 ? solutions[0] : null;
-		}
+		private static void TryOpenSolution() => CodeEditor.Editor.CurrentCodeEditor.OpenProject();
 
 		private static Boolean IsProjectLaunching()
 		{
@@ -47,17 +34,6 @@ namespace CodeSmile.Editor.Tools.IDE
 
 			return launching;
 		}
-
-		private static void OnDelayCall()
-		{
-			EditorApplication.delayCall -= OnDelayCall; // not necessary but it's a good habit
-
-			if (IsProjectLaunching())
-				TryOpenSolution();
-		}
-
-		// delayed in case .sln file has not been generated yet
-		static OpenSolutionOnStartup() => EditorApplication.delayCall += OnDelayCall;
 	}
 }
 #endif
