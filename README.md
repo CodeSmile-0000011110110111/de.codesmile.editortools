@@ -1,6 +1,11 @@
 # de.codesmile.unityeditor.tools
 An assorted collection of editor-only tools and improvements.
 
+## Installation
+- Open Unity's Package Manager
+- Add package from Git URL
+- Enter the package URL: https://github.com/CodeSmile-0000011110110111/de.codesmile.unityeditor.tools
+
 Includes the following tools:
 
 ## Open Solution on Startup
