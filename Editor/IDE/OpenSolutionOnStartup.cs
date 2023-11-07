@@ -3,6 +3,7 @@
 
 #if UNITY_EDITOR
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Unity.CodeEditor;
 using UnityEditor;
 
@@ -11,7 +12,7 @@ namespace CodeSmile.Editor.Tools.IDE
 	/// <summary>
 	///     Will launch the IDE associated with .sln files when the Unity project is opened.
 	/// </summary>
-	[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+	[ExcludeFromCodeCoverage]
 	public class OpenSolutionOnStartup
 	{
 		private const String SessionStateKey = "CodeSmile.Editor.Tools.IsProjectLaunching";
