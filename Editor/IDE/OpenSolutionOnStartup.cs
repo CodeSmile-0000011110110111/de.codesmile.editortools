@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using Unity.CodeEditor;
 using UnityEditor;
 
-namespace CodeSmile.Editor.Tools.IDE
+namespace CodeSmileEditor
 {
 	/// <summary>
 	///     Will launch the IDE associated with .sln files when the Unity project is opened.
@@ -15,7 +15,7 @@ namespace CodeSmile.Editor.Tools.IDE
 	[ExcludeFromCodeCoverage]
 	public class OpenSolutionOnStartup
 	{
-		private const String SessionStateKey = "CodeSmile.Editor.Tools.IsProjectLaunching";
+		private const String SessionStateKey = "CodeSmileEditor.Tools.IsProjectLaunching";
 
 		[InitializeOnLoadMethod]
 		private static void OnLoad()
@@ -24,7 +24,7 @@ namespace CodeSmile.Editor.Tools.IDE
 				TryOpenSolution();
 		}
 
-		[MenuItem("CodeSmile/Open Solution")]
+		[MenuItem("Window/CodeSmile/Open Solution", priority = 2999)]
 		private static void TryOpenSolution() => CodeEditor.Editor.CurrentCodeEditor.OpenProject();
 
 		private static Boolean IsProjectLaunching()
