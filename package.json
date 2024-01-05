@@ -2,17 +2,17 @@
   "name": "de.codesmile.editortools",
   "displayName": "CodeSmile EditorTools",
   "description": "An assorted collection of editor-only tools and improvements.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "unity": "2021.3",
   "unityRelease": "3f1",
   "author": {
     "name": "Steffen Itterheim aka 'CodeSmile' (Unity MVP, Self-Employed)",
     "email": "steffen@steffenitterheim.de",
-    "url": "https://codesmile.de"
+    "url": "https://github.com/CodeSmile-0000011110110111/de.codesmile.editortools"
   },
-  "changelogUrl": "https://codesmile.de",
-  "documentationUrl": "https://codesmile.de",
-  "licensesUrl": "https://codesmile.de",
+  "changelogUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.editortools/blob/main/CHANGELOG.md",
+  "documentationUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.editortools/blob/main/README.md",
+  "licensesUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.editortools/blob/main/LICENSE",
   "dependencies": {
   }
 }
