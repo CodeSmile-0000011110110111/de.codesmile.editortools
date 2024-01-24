@@ -14,5 +14,6 @@
   "documentationUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.editortools/blob/main/README.md",
   "licensesUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.editortools/blob/main/LICENSE",
   "dependencies": {
+    "de.codesmile.extensions": "1.0.0"
   }
 }
