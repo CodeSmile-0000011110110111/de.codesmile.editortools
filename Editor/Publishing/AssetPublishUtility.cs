@@ -162,7 +162,6 @@ namespace CodeSmileEditor.Tools.Publishing
 			if (File.Exists(source) || Directory.Exists(source))
 			{
 				var dest = $"{destPath}/{fileName}";
-				Debug.Log($"Copy to: {dest}");
 				FileUtil.CopyFileOrDirectory(source, dest);
 				FileUtil.CopyFileOrDirectory($"{source}.meta", $"{dest}.meta");
 			}
