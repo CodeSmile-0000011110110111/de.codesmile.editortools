@@ -25,7 +25,7 @@ namespace CodeSmileEditor
 		[MenuItem("Window/CodeSmile/Open Solution", priority = 2999)]
 		private static void TryOpenSolution()
 		{
-			CodeEditor.CurrentEditor.OpenProject();
+			//CodeEditor.CurrentEditor.OpenProject();
 		}
 
 		private static Boolean IsProjectLaunching()
