@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Principal;
 using UnityEditor;
 using UnityEditor.PackageManager;
 using UnityEngine;
@@ -20,7 +19,7 @@ namespace CodeSmileEditor.Tools.Publishing
 	///     Asset Store Publishing Tools unfortunately are unable to automatically include references packages,
 	///     not even if they are embedded.
 	/// </remarks>
-	public class CodeSmileAssetPublishUtility : Editor
+	internal class CodeSmileAssetPublishUtility : Editor
 	{
 		private const String PackageNameFilter = "de.codesmile.";
 		private const String FileIdentifier = "\"file:";

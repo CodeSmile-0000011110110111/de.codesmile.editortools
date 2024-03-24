@@ -7,7 +7,7 @@ using Unity.CodeEditor;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmileEditor
+namespace CodeSmileEditor.Tools.IDE
 {
 	/// <summary>
 	///     Will launch the IDE associated with .sln files when the Unity project is opened.
