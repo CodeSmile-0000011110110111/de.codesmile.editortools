@@ -19,7 +19,7 @@ namespace CodeSmileEditor.Tools.Publishing
 	///     Asset Store Publishing Tools unfortunately are unable to automatically include references packages,
 	///     not even if they are embedded.
 	/// </remarks>
-	internal class CodeSmileAssetPublishUtility : Editor
+	internal static class CodeSmileAssetPublishUtility
 	{
 		private const String PackageNameFilter = "de.codesmile.";
 		private const String FileIdentifier = "\"file:";
