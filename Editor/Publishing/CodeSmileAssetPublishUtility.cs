@@ -20,7 +20,7 @@ namespace CodeSmileEditor.Tools.Publishing
 	///     Asset Store Publishing Tools unfortunately are unable to automatically include references packages,
 	///     not even if they are embedded.
 	/// </remarks>
-	public class AssetPublishUtility : Editor
+	public class CodeSmileAssetPublishUtility : Editor
 	{
 		private const String PackageNameFilter = "de.codesmile.";
 		private const String FileIdentifier = "\"file:";
@@ -41,7 +41,7 @@ namespace CodeSmileEditor.Tools.Publishing
 		[MenuItem("Prepare for Publishing", menuItem = "Window/CodeSmile/DEV: Move my Packages to Assets", priority = 9998)]
 		private static void MoveToAssets()
 		{
-			if (CheckUserName())
+			if (UserCheck.IsCurrentUserCodeSmile)
 			{
 				BackupManifest();
 				var packagePaths = RemoveCodeSmilePackagesFromManifest();
@@ -59,7 +59,7 @@ namespace CodeSmileEditor.Tools.Publishing
 			priority = 9999)]
 		private static void RemoveFromAssets()
 		{
-			if (CheckUserName())
+			if (UserCheck.IsCurrentUserCodeSmile)
 			{
 				DeletePackagesInAssets();
 				ReplaceManifestWithBackup();
@@ -201,7 +201,5 @@ namespace CodeSmileEditor.Tools.Publishing
 
 			File.WriteAllLines(PackagesSavePath, packagePaths);
 		}
-
-		private static Boolean CheckUserName() => WindowsIdentity.GetCurrent().Name.Equals("CodeSmile-PC\\CodeSmile");
 	}
 }

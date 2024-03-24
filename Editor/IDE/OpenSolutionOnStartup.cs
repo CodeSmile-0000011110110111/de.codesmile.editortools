@@ -1,10 +1,11 @@
-// Copyright (C) 2021-2023 Steffen Itterheim
+// Copyright (C) 2021-2024 Steffen Itterheim
 // Refer to included LICENSE file for terms and conditions.
 
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Unity.CodeEditor;
 using UnityEditor;
+using UnityEngine;
 
 namespace CodeSmileEditor
 {
@@ -18,15 +19,16 @@ namespace CodeSmileEditor
 
 		[InitializeOnLoadMethod] private static void InitializeOnLoad()
 		{
-			if (IsProjectLaunching())
-				TryOpenSolution();
+			// disabled auto-load because quitting Unity while leaving Rider open stacks the open request
+			// thus when closing Rider, it re-opens as many times as I had quit Unity ... ugh.
+			// no time atm to implement a workaround (check process executable already running)
+
+			// if (IsProjectLaunching())
+			// 	TryOpenSolution();
 		}
 
 		[MenuItem("Window/CodeSmile/Open Solution", priority = 2999)]
-		private static void TryOpenSolution()
-		{
-			//CodeEditor.CurrentEditor.OpenProject();
-		}
+		private static void TryOpenSolution() => CodeEditor.CurrentEditor.OpenProject();
 
 		private static Boolean IsProjectLaunching()
 		{
