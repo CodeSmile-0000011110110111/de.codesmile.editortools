@@ -132,6 +132,10 @@ namespace CodeSmileEditor.Tools.Publishing
 
 		private static void CopyPackagesToAssets(String[] packagePaths)
 		{
+			var fullPath = Path.GetFullPath(AssetPackagesPath);
+			if (Directory.Exists(fullPath) == false)
+				Directory.CreateDirectory(fullPath);
+
 			foreach (var path in packagePaths)
 			{
 				var destPath = AssetPackagesPath + path.Substring("P:/".Length);
@@ -168,12 +172,11 @@ namespace CodeSmileEditor.Tools.Publishing
 
 		private static void DeletePackagesInAssets()
 		{
-			var fullPath = Path.GetFullPath(AssetPackagesPath);
-			Directory.Delete(Path.GetFullPath(AssetPackagesPath), true);
-			Directory.CreateDirectory(fullPath);
-
-			// remove the .meta since Unity still recognizes that the folder had been deleted
 			File.Delete(Path.GetFullPath(AssetPackagesPath.TrimEnd('/') + ".meta"));
+
+			var fullPath = Path.GetFullPath(AssetPackagesPath);
+			Directory.Delete(fullPath, true);
+			Directory.CreateDirectory(fullPath);
 		}
 
 		private static String ToRelativePath(String absolutePath)
